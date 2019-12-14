@@ -1,24 +1,3 @@
-# Configuration for Rasa NLU. 
-# https://rasa.com/docs/rasa/nlu/components/ 
-language: en
-pipeline:
-  - name: "SpacyNLP"
-  - name: "SpacyTokenizer"
-  #- name: "bert_tokenizer.BertTokenizer"
-  # Exception: tokenizer_bert need vocab file 
-  - name: "SpacyFeaturizer"
-  - name: "RegexFeaturizer"
-  #- name: "bert_featurizer.BertFeaturizer" # Exception: Failed to train 'intent_featurizer_bert'. 
-  # Missing a proper BERT feature extractor. 
-  # Make sure this component is preceded by the 'tokenizer_bert' component in the pipeline configuration. 
-  - name: "CRFEntityExtractor"
-  - name: "EntitySynonymMapper"
-  - name: "bert_classifier.BertClassifier"
-
-
-# Configuration for Rasa Core. 
-# https://rasa.com/docs/rasa/core/policies/ 
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
+version https://git-lfs.github.com/spec/v1
+oid sha256:1cb2d080534f319545b1f47a74e7d9610dad4650f552f6a44f1c26034a0fb3fc
+size 814

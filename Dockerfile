@@ -1,14 +1,3 @@
-FROM rasa/rasa
-
-ENV BOT_ENV=production
-
-COPY . /var/www
-WORKDIR /var/www
-
-RUN pip install rasa==1.3.0a1
-RUN rasa train
-
-ENTRYPOINT [ "rasa", "run", "-p", "8080"]
-
-# ENV http_proxy http://proxy-chain.xxx.com:911/
-# ENV https_proxy http://proxy-chain.xxx.com:912/
+version https://git-lfs.github.com/spec/v1
+oid sha256:818c86c8e93cd4ac8a269bc5f864185fbeaaad67e944b5b690c3a37cda804a58
+size 274

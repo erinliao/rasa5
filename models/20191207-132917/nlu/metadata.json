@@ -1,0 +1,77 @@
+{
+    "language": "en",
+    "pipeline": [
+        {
+            "model": "en",
+            "case_sensitive": false,
+            "name": "SpacyNLP",
+            "class": "rasa.nlu.utils.spacy_utils.SpacyNLP"
+        },
+        {
+            "name": "SpacyTokenizer",
+            "class": "rasa.nlu.tokenizers.spacy_tokenizer.SpacyTokenizer"
+        },
+        {
+            "ner_feature_vectors": false,
+            "name": "SpacyFeaturizer",
+            "class": "rasa.nlu.featurizers.spacy_featurizer.SpacyFeaturizer"
+        },
+        {
+            "name": "RegexFeaturizer",
+            "file": "component_3_RegexFeaturizer.pkl",
+            "class": "rasa.nlu.featurizers.regex_featurizer.RegexFeaturizer"
+        },
+        {
+            "BILOU_flag": true,
+            "features": [
+                [
+                    "low",
+                    "title",
+                    "upper"
+                ],
+                [
+                    "bias",
+                    "low",
+                    "prefix5",
+                    "prefix2",
+                    "suffix5",
+                    "suffix3",
+                    "suffix2",
+                    "upper",
+                    "title",
+                    "digit",
+                    "pattern"
+                ],
+                [
+                    "low",
+                    "title",
+                    "upper"
+                ]
+            ],
+            "max_iterations": 50,
+            "L1_c": 0.1,
+            "L2_c": 0.1,
+            "name": "CRFEntityExtractor",
+            "file": "component_4_CRFEntityExtractor.pkl",
+            "class": "rasa.nlu.extractors.crf_entity_extractor.CRFEntityExtractor"
+        },
+        {
+            "name": "EntitySynonymMapper",
+            "file": null,
+            "class": "rasa.nlu.extractors.entity_synonyms.EntitySynonymMapper"
+        },
+        {
+            "bert_model": "bert-base-uncased",
+            "max_seq_length": 64,
+            "train_batch_size": 16,
+            "epochs": 3,
+            "validation_fraction": 0.1,
+            "name": "BertClassifier",
+            "classifier": "component_6_BertClassifier_classifier.pkl",
+            "encoder": "component_6_BertClassifier_encoder.pkl",
+            "class": "bert_classifier.BertClassifier"
+        }
+    ],
+    "trained_at": "20191207-132915",
+    "rasa_version": "1.5.1"
+}
